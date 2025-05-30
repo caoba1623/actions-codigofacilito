@@ -1,0 +1,9 @@
+name: "Deploy codigo facilito"
+on:
+  push:
+    branches: ["main"]
+jobs:
+  deploy-codigofacilito:
+    runs-on: ubunto-latest
+    steps:
+      - run: echo "hola mundo"
