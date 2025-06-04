@@ -20,6 +20,9 @@ jobs:
       
     runs-on: ubuntu-latest
 
+    outputs:
+      salida: ${{ steps.step_2.outputs.my_variable }}
+
     steps:
       - name: hola mundo
         run: echo "Hola mundo otra vez"
@@ -33,7 +36,10 @@ jobs:
     needs: second_job
     runs-on: ubuntu-latest
 
+    env:
+      SALIDA: ${{ needs.second_job.outputs.salida }}
+
     steps:
-      - name: hola mundo
-        run: echo "Hola mundo por tercera vez"
+      - name: print variable from another job
+        run: echo "$SALIDA"
     
