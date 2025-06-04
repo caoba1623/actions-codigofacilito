@@ -71,5 +71,8 @@ jobs:
         with: 
           name: archivo-test
 
+      - name: Cat file
+        run: cat test.log
+
       
     
