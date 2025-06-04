@@ -11,7 +11,7 @@ jobs:
       - name: working dir
         run: ls -al
       - name: action
-        uses: actions/checkout@4
+        uses: actions/checkout@v4
 
   second_job:
     name: segundo paso
