@@ -4,14 +4,18 @@ on: push
 
 jobs: 
   first_job:
+    name: primer paso
     runs-on: ubuntu-latest
 
     steps:
-      - name: hola mundo
-        run: echo "hola mundo"
+      - name: working dir
+        run: ls -al
+      - name: action
+        uses: actions/checkout@4
 
   second_job:
-    if: ${{ github.ref == 'refs/heads/master'}}
+    name: segundo paso
+    if: ${{ github.ref == 'refs/heads/main'}}
     runs-on: ubuntu-latest
 
     steps:
