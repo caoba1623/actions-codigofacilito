@@ -16,16 +16,21 @@ jobs:
   second_job:
     name: segundo paso
     if: ${{ github.ref == 'refs/heads/main'}}
+    needs: first_job
+      
     runs-on: ubuntu-latest
 
     steps:
       - name: hola mundo
         run: echo "Hola mundo otra vez"
+      - name: step2
+        id: step_2
+        run: echo "my_variable=mi variable" >> $GITHUB_OUTPUT
+      - name: Obtener mensaje
+        run: echo "${{ steps.step_2.outputs.my_variable }}"
     
   third_job:
-    needs: 
-      - first_job
-      - second_job
+    needs: second_job
     runs-on: ubuntu-latest
 
     steps:
