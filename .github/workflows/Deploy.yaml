@@ -8,8 +8,14 @@ jobs:
       steps:
           - name: Deploy
             run: echo "${{secrets.TOKEN_SECRET}}"
+
+          - name: Checkout
+            uses:  actions/checkout@v4
           
           - name: Setup
             uses:  actions/setup-node@v4
             with:
               node-version: '18'
+
+          - name: Install dependencies
+            run: npm install
